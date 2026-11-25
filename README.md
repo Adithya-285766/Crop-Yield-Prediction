@@ -19,6 +19,33 @@ SDG 2: Zero Hunger.
 | `outputs/figures/` | 21 figures (EDA, diagnostics, bootstrap, tuning, comparison) |
 | `outputs/tables/` | CSV tables (descriptive stats, coefficients, VIF, CV folds, comparison, …) |
 
+## Streamlit web app
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+The app opens at http://localhost:8501 and has 11 pages: Home, Overview, Dataset Explorer, EDA, Phase 1 models,
+Regression Diagnostics, Estimator Validation, Advanced Modeling, Model Comparison, Crop Yield Prediction,
+and Conclusion & SDG 2.
+
+- The app reads results from `outputs/` and `data/crop_yield_clean.csv`; it does not re-run the analysis.
+- The pipeline does not save fitted models. On first launch, `utils/models.py` rebuilds them from the tuned
+  hyperparameters in `outputs/results.json`, using the same split, preprocessing and seed. This takes about 1 minute.
+  The models are then cached in `models/` (git-ignored, about 70 MB).
+- The **Model Comparison** page has a reproducibility check confirming that the rebuilt models reproduce the
+  pipeline's published test metrics exactly.
+
+| Path | What it is |
+|---|---|
+| `app.py` | Entry point: page config, theme and sidebar navigation |
+| `app_pages/` | One file per page |
+| `utils/data.py` | Read-only loaders for data, results, tables and figures |
+| `utils/models.py` | Rebuilds the final models (same split, preprocessing and hyperparameters) and verifies them |
+| `utils/ui.py` | Styling, metric cards, Plotly theme |
+| `.streamlit/config.toml` | Green/white theme |
+
 ## Dataset
 
 Laktionov, I., Semenov, S., & Diachenko, G. (2026). *Dataset for Crop Yield Prediction* [Data set]. Zenodo.

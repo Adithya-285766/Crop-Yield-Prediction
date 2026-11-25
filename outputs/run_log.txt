@@ -139,7 +139,7 @@ Dep. Variable:             yield_t_ha   R-squared:                       0.034
 Model:                            OLS   Adj. R-squared:                  0.033
 Method:                 Least Squares   F-statistic:                     364.6
 Date:                Wed, 25 Nov 2026   Prob (F-statistic):           6.44e-80
-Time:                        18:36:14   Log-Likelihood:                -36415.
+Time:                        21:25:24   Log-Likelihood:                -36415.
 No. Observations:               10504   AIC:                         7.283e+04
 Df Residuals:                   10502   BIC:                         7.285e+04
 Df Model:                           1                                         
@@ -170,7 +170,7 @@ Dep. Variable:             yield_t_ha   R-squared:                       0.607
 Model:                            OLS   Adj. R-squared:                  0.606
 Method:                 Least Squares   F-statistic:                     1244.
 Date:                Wed, 25 Nov 2026   Prob (F-statistic):               0.00
-Time:                        18:36:16   Log-Likelihood:                -31694.
+Time:                        21:25:25   Log-Likelihood:                -31694.
 No. Observations:               10504   AIC:                         6.342e+04
 Df Residuals:                   10490   BIC:                         6.352e+04
 Df Model:                          13                                         
@@ -340,7 +340,7 @@ avg_rainfall_mm     numeric     0.0168        0.0750          NaN
            crop categorical        NaN           NaN       0.5343
         country categorical        NaN           NaN       0.2055
 
-RFECV (18.9s): optimal number of encoded columns = 110 of 115
+RFECV (25.6s): optimal number of encoded columns = 110 of 115
 Encoded columns kept by RFECV per original feature:
                   kept  total
 avg_rainfall_mm     1      1
@@ -416,9 +416,9 @@ Numeric features set to zero: []
 ==============================================================================
 11. MACHINE LEARNING MODELS (tuned with 5-fold CV on training data)
 ==============================================================================
-Decision Tree (19s): best = {'model__max_depth': 25, 'model__min_samples_leaf': 1}, CV RMSE = 1.8571
-Random Forest (391s): best = {'model__max_depth': None, 'model__max_features': 0.6, 'model__min_samples_leaf': 1}, CV RMSE = 1.4706
-Gradient Boosting (259s): best = {'model__learning_rate': 0.1, 'model__max_iter': 800, 'model__max_leaf_nodes': 63, 'model__min_samples_leaf': 10}, CV RMSE = 1.5679
+Decision Tree (24s): best = {'model__max_depth': 25, 'model__min_samples_leaf': 1}, CV RMSE = 1.8571
+Random Forest (432s): best = {'model__max_depth': None, 'model__max_features': 0.6, 'model__min_samples_leaf': 1}, CV RMSE = 1.4706
+Gradient Boosting (278s): best = {'model__learning_rate': 0.1, 'model__max_iter': 800, 'model__max_leaf_nodes': 63, 'model__min_samples_leaf': 10}, CV RMSE = 1.5679
   [figure saved] outputs/figures/17_dt_tuning_heatmap.png
 
 ==============================================================================
@@ -428,15 +428,15 @@ Hold-out test set (20%) + 5-fold CV on the training set:
 
                                 R2    MAE     MSE   RMSE  Train_R2  Train_RMSE  CV_R2_mean  CV_R2_std  CV_RMSE_mean  CV_RMSE_std  CV_MAE_mean  fit_seconds  Overfit_gap_R2
 Model                                                                                                                                                                     
-Simple Linear Regression    0.0374 5.7294 61.9214 7.8690    0.0335      7.7508      0.0327     0.0062        7.7506       0.1650       5.7004       0.1005         -0.0039
-Multiple Linear Regression  0.6151 3.1805 24.7623 4.9762    0.6066      4.9451      0.6054     0.0110        4.9509       0.1693       3.2267       0.1778         -0.0085
-MLR (Phase 2 features, OLS) 0.7351 2.8622 17.0404 4.1280    0.7293      4.1023      0.7219     0.0089        4.1559       0.1228       2.8755       0.6561         -0.0058
-Ridge Regression            0.7349 2.8616 17.0531 4.1295    0.7292      4.1025      0.7219     0.0088        4.1557       0.1227       2.8740       0.3395         -0.0057
-LASSO Regression            0.7350 2.8580 17.0446 4.1285    0.7292      4.1025      0.7219     0.0088        4.1556       0.1228       2.8725      65.0388         -0.0058
-LASSO (1-SE rule)           0.7301 2.7919 17.3649 4.1671    0.7238      4.1437      0.7175     0.0081        4.1890       0.1309       2.8170       2.2959         -0.0063
-Decision Tree Regressor     0.9598 0.7868  2.5857 1.6080    0.9998      0.1206      0.9443     0.0050        1.8571       0.0875       0.9023       0.6045          0.0400
-Random Forest Regressor     0.9730 0.6559  1.7339 1.3168    0.9958      0.5110      0.9651     0.0035        1.4706       0.0675       0.7409      56.8457          0.0228
-Gradient Boosting (HistGB)  0.9637 0.8430  2.3325 1.5272    0.9844      0.9863      0.9603     0.0030        1.5679       0.0524       0.8743      37.7803          0.0206
+Simple Linear Regression    0.0374 5.7294 61.9214 7.8690    0.0335      7.7508      0.0327     0.0062        7.7506       0.1650       5.7004       0.1114         -0.0039
+Multiple Linear Regression  0.6151 3.1805 24.7623 4.9762    0.6066      4.9451      0.6054     0.0110        4.9509       0.1693       3.2267       0.2059         -0.0085
+MLR (Phase 2 features, OLS) 0.7351 2.8622 17.0404 4.1280    0.7293      4.1023      0.7219     0.0089        4.1559       0.1228       2.8755       0.8500         -0.0058
+Ridge Regression            0.7349 2.8616 17.0531 4.1295    0.7292      4.1025      0.7219     0.0088        4.1557       0.1227       2.8740       0.7204         -0.0057
+LASSO Regression            0.7350 2.8580 17.0446 4.1285    0.7292      4.1025      0.7219     0.0088        4.1556       0.1228       2.8725      67.1610         -0.0058
+LASSO (1-SE rule)           0.7301 2.7919 17.3649 4.1671    0.7238      4.1437      0.7175     0.0081        4.1890       0.1309       2.8170       2.3511         -0.0063
+Decision Tree Regressor     0.9598 0.7868  2.5857 1.6080    0.9998      0.1206      0.9443     0.0050        1.8571       0.0875       0.9023       0.6433          0.0400
+Random Forest Regressor     0.9730 0.6559  1.7339 1.3168    0.9958      0.5110      0.9651     0.0035        1.4706       0.0675       0.7409      55.9193          0.0228
+Gradient Boosting (HistGB)  0.9637 0.8430  2.3325 1.5272    0.9844      0.9863      0.9603     0.0030        1.5679       0.0524       0.8743      49.7812          0.0206
 
 Temporal hold-out: train n=10775 (1990-2009), test n=2355 (2010-2013)
 Leave-countries-out: 5-fold GroupKFold, no country appears in both train and validation
