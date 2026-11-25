@@ -1,0 +1,14 @@
+feature,VIF
+C(crop)[T.Maize],2.7405281416597984
+C(crop)[T.Plantains and others],1.443195611470987
+C(crop)[T.Potatoes],2.8836229172550065
+"C(crop)[T.Rice, paddy]",2.332654121261801
+C(crop)[T.Sorghum],2.2836248439969755
+C(crop)[T.Soybeans],2.1726888927229684
+C(crop)[T.Sweet potatoes],2.036252333651013
+C(crop)[T.Wheat],2.728575942463254
+C(crop)[T.Yams],1.4309310936269828
+avg_rainfall_mm,1.2594439998182063
+log_pesticides,1.2271246540534202
+avg_temp_c,1.4719263587593538
+year,1.0091020713086827
